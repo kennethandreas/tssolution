@@ -1,7 +1,7 @@
-# Deploying tssolution.co.id to CBN cPanel hosting
+# Deploying to cPanel hosting
 
-The live server is a CBN **cPanel + Apache** server (domain on `ns1/ns2.cbn.net.id`, site and mail on
-`103.24.12.149`, valid Let's Encrypt certificate from AutoSSL). The website is deployed as:
+The site runs on any standard **cPanel + Apache** host with PHP and an SSL certificate (e.g. Let's
+Encrypt via AutoSSL). Replace `example.com` below with your own domain. The website is deployed as:
 
 - a **static public page** (`index.html` + `assets/`) that Apache serves directly, and
 - a **PHP admin backend** (`api/` + `app/`) — no database, no Node.js, no Composer needed on the server.
@@ -27,11 +27,11 @@ Creates in `deploy/cpanel/`:
 The current local content (`data/content.json`) becomes the starting content online. After going
 live, edit content in the **online** admin; the local copy is no longer used.
 
-## 2. Prepare cPanel (https://tssolution.co.id:2083)
+## 2. Prepare cPanel (https://example.com:2083)
 
 1. **Back up the current site** — File Manager → open `public_html` → Settings → tick
    *Show Hidden Files* → Select All → Compress → Zip → download the zip to your computer.
-2. **PHP version** — *MultiPHP Manager* (or *Select PHP Version*) → set `tssolution.co.id` to
+2. **PHP version** — *MultiPHP Manager* (or *Select PHP Version*) → set `example.com` to
    **PHP 8.1 or newer** (7.4 is the minimum).
 3. **Database** — none needed. Skip *MySQL Databases*.
 4. **Environment variables** — none needed. The only settings live in `public_html/app/config.php`.
@@ -60,31 +60,30 @@ Resulting layout:
 
 ## 4. Create the admin account
 
-1. Open **https://tssolution.co.id/admin/setup**.
+1. Open **https://example.com/admin/setup**.
 2. Check that all *Server checks* show ✓ (they cover the PHP version, writable folders and that the
    data folder is private).
 3. Enter the token from `SETUP-TOKEN.txt`, a username and a password (min. 10 characters).
    The setup page closes itself once an account exists.
-4. Sign in at **https://tssolution.co.id/admin**.
+4. Sign in at **https://example.com/admin**.
 
 ## 5. Domain, DNS and HTTPS
 
-- **DNS: no changes needed.** The domain already points to this CBN server. Do **not** change the
-  MX/mail records — email (`mail.tssolution.co.id`) runs on the same server.
-  (Only if you move to a *different* CBN server would CBN need to update the A record.)
+- **DNS:** the domain's A record must point to the hosting server. If email runs on the same
+  server, leave the MX/mail records unchanged.
 - **HTTPS: already active.** AutoSSL renews the certificate automatically. The included
   `.htaccess` redirects all visitors to `https://`. If a certificate warning ever appears:
   *SSL/TLS Status* → **Run AutoSSL**.
 
 ## 6. Verify
 
-- https://tssolution.co.id — page loads, mobile menu, “Show more” clients, map.
-- http://tssolution.co.id — redirects to https.
-- https://tssolution.co.id/admin — sign in, change a small text, **Save & publish**, reload the
+- https://example.com — page loads, mobile menu, “Show more” clients, map.
+- http://example.com — redirects to https.
+- https://example.com/admin — sign in, change a small text, **Save & publish**, reload the
   public page and check the change, then undo it (or restore it in *Version history*).
 - Upload an image in *Media library* and delete it again.
-- These must be blocked: https://tssolution.co.id/app/config.php (403),
-  https://tssolution.co.id/admin/app.html (403), https://tssolution.co.id/tssolution-data/ (404).
+- These must be blocked: https://example.com/app/config.php (403),
+  https://example.com/admin/app.html (403), https://example.com/tssolution-data/ (404).
 
 ## 7. Troubleshooting
 
@@ -98,7 +97,7 @@ Resulting layout:
 | Large image uploads fail | *MultiPHP INI Editor* → raise `post_max_size` and `upload_max_filesize` to `16M`. |
 | “Too many failed attempts” | Wait 15 minutes (or delete `tssolution-data/ratelimit/`). |
 | Forgot the admin password | Delete `tssolution-data/admin.json`, open `/admin/setup` again and use the setup token. Lost the token? Run `npm run build:cpanel` and upload only the new `app/config.php`. |
-| Admin keeps signing you out | Always use `https://tssolution.co.id` (not `http://` or a different host name). |
+| Admin keeps signing you out | Always use `https://example.com` (not `http://` or a different host name). |
 
 ## 8. Rolling back
 

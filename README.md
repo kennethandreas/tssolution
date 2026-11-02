@@ -7,7 +7,7 @@
 Company profile website for **TS Solution** (PT Hamparan Indah Rejeki), a facility service company,
 with a custom-built, zero-dependency content management system.
 
-[![Live Site](https://img.shields.io/badge/live-tssolution.co.id-0a7d4f?style=flat-square)](https://tssolution.co.id)
+[![Live Site](https://img.shields.io/badge/live-tssolution.co.id-F7A23B?style=flat-square)](https://tssolution.co.id)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
@@ -26,6 +26,23 @@ restorable version.
 
 The project runs without a database and without any npm or Composer packages, so it can be
 hosted on standard shared cPanel hosting at minimal cost.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/home-desktop.png" alt="Public website — desktop" width="100%">
+</p>
+
+<table>
+  <tr>
+    <td width="68%"><img src="docs/screenshots/admin-panel.png" alt="Admin panel overview"></td>
+    <td width="32%"><img src="docs/screenshots/home-mobile.png" alt="Public website — mobile"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Admin panel</sub></td>
+    <td align="center"><sub>Mobile view</sub></td>
+  </tr>
+</table>
 
 ## Features
 
@@ -135,10 +152,18 @@ npm run build:cpanel
 This creates an upload-ready package in `deploy/cpanel/`. See
 **[DEPLOY-CPANEL.md](DEPLOY-CPANEL.md)** for the full step-by-step guide.
 
+## Author
+
+**Kenneth Andreas** — Full-Stack Web Developer
+
+Designed and developed the website, admin CMS, both backends and the deployment pipeline.
+
+[![GitHub](https://img.shields.io/badge/GitHub-kennethandreas-181717?style=flat-square&logo=github)](https://github.com/kennethandreas)
+
 ---
 
 <div align="center">
 
-© 2026 TS Solution · PT Hamparan Indah Rejeki. All rights reserved.
+Built for TS Solution (PT Hamparan Indah Rejeki). Content, logo and imagery © their respective owner.
 
 </div>
