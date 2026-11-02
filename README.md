@@ -158,6 +158,8 @@ This creates an upload-ready package in `deploy/cpanel/`. See
 
 Designed and developed the website, admin CMS, both backends and the deployment pipeline.
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-F7A23B?style=flat-square&logo=googlechrome&logoColor=white)](https://kenneth-portfolio.kennethandreas12.workers.dev/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-kennethandreas-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kennethandreas/)
 [![GitHub](https://img.shields.io/badge/GitHub-kennethandreas-181717?style=flat-square&logo=github)](https://github.com/kennethandreas)
 
 ---
