@@ -1,0 +1,14 @@
+# admin credentials (scrypt hashes) — never commit
+data/admin.json
+data/*.tmp
+# per-save history snapshots
+data/history/
+node_modules/
+*.tmp
+# build output (contains a setup token)
+deploy/
+# original source images (large, not needed to run the site)
+assets/img/_originals/
+# uploaded media
+assets/uploads/*
+!assets/uploads/.gitkeep

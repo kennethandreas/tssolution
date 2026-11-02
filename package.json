@@ -1,0 +1,16 @@
+{
+  "name": "tssolution-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TS Solution landing page with admin panel (no external dependencies).",
+  "scripts": {
+    "start": "node server/server.js",
+    "create-admin": "node server/cli.js create",
+    "list-admins": "node server/cli.js list",
+    "build:cpanel": "node scripts/build-cpanel.js",
+    "check:php": "node scripts/check-php-parity.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
