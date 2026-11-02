@@ -1,76 +1,144 @@
-# TS Solution – website + admin panel
+<div align="center">
 
-Single-page website for https://tssolution.co.id with a built-in admin panel.
-Production runs on standard **cPanel/Apache + PHP 7.4+** hosting (no database); locally it
-runs on Node.js 18+. **No npm or Composer packages** in either case.
+<img src="assets/img/logo-ts-solution.png" alt="TS Solution" height="72">
 
-## Quick start
+# TS Solution — Website & Admin CMS
+
+Company profile website for **TS Solution** (PT Hamparan Indah Rejeki), a facility service company,
+with a custom-built, zero-dependency content management system.
+
+[![Live Site](https://img.shields.io/badge/live-tssolution.co.id-0a7d4f?style=flat-square)](https://tssolution.co.id)
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square)
+
+</div>
+
+---
+
+## Overview
+
+The public site is a fast, fully static HTML page. Behind it sits an admin panel that lets
+non-technical staff manage every part of the website — text, images, layout, branding and SEO —
+without touching code. Each save validates the content, regenerates the static page and stores a
+restorable version.
+
+The project runs without a database and without any npm or Composer packages, so it can be
+hosted on standard shared cPanel hosting at minimal cost.
+
+## Features
+
+**Public website**
+- Static, SEO-friendly HTML that works fully without JavaScript
+- Responsive layout with WebP images and responsive image sizes
+- Animations that respect `prefers-reduced-motion`
+- Open Graph / social sharing metadata
+
+**Admin panel**
+- Edit all texts, buttons and links across every section
+- Manage services, sectors, values, field photos, client logos and office contacts
+- Reorder, show/hide and rename sections and menu items
+- Brand colors with automatic contrast checks and curated font pairings
+- Media library with secure image uploads
+- Version history with one-click restore (last 30 versions)
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3 (custom properties), Vanilla JavaScript |
+| Backend | Node.js 18+ (built-in modules only) · PHP 7.4+ |
+| Storage | JSON files — no database |
+| Server | Apache (`.htaccess`), cPanel, Let's Encrypt SSL |
+| Tooling | Custom build script, PHP ↔ Node.js parity test |
+
+## Architecture
+
+```
+            ┌──────────────┐   save    ┌────────────────────┐
+  Admin ──▶ │  Admin panel │ ────────▶ │ Backend (Node/PHP) │
+            └──────────────┘           │  • validate input  │
+                                       │  • write JSON      │
+                                       │  • render HTML     │
+                                       │  • store version   │
+                                       └─────────┬──────────┘
+                                                 ▼
+  Visitor ◀──────────── index.html (static) + assets/
+```
+
+Two interchangeable backends expose the **same API**, so the admin UI is identical in both:
+
+| Backend | Purpose | Location |
+|---|---|---|
+| PHP | Production on Apache / cPanel hosting | `php/` |
+| Node.js | Local development and preview | `server/` |
+
+Validation rules and rendering have a single source of truth in the Node.js code. The PHP
+backend consumes the exported schema at build time, and `npm run check:php` verifies that both
+backends render byte-identical HTML and validate input identically.
+
+## Getting Started
+
+**Requirements:** Node.js 18 or newer (no `npm install` needed).
 
 ```bash
-npm run create-admin      # once: choose a username + password (min 10 characters)
-npm start                 # http://localhost:3000  ·  admin at http://localhost:3000/admin
+git clone https://github.com/kennethandreas/tssolution.git
+cd tssolution
+
+npm run create-admin   # create an admin account (password min. 10 characters)
+npm start              # http://localhost:3000
 ```
 
-Change the port with `PORT=8080 npm start`. To reset a forgotten password, run
-`npm run create-admin -- <username>` again on the server. `npm run list-admins` shows the accounts.
+The admin panel is available at `http://localhost:3000/admin`.
 
-## How it works
+| Command | Description |
+|---|---|
+| `npm start` | Start the local server (`PORT=8080 npm start` to change port) |
+| `npm run create-admin` | Create an admin account or reset a password |
+| `npm run list-admins` | List admin accounts |
+| `npm run build:cpanel` | Build the production package for cPanel |
+| `npm run check:php` | Verify PHP and Node.js backends produce identical output |
+
+## Project Structure
 
 ```
-data/content.json      all page content + settings (the single source of truth)
-server/render.js       turns content.json into index.html (same markup as before)
-index.html             GENERATED on every save — edit content in /admin, not here
-data/history/          the last 30 published versions (restorable from the admin)
-assets/uploads/        images uploaded in the admin
-data/admin.json        admin accounts (scrypt-hashed passwords) — never commit or share
+├── index.html          Generated public page — edit content via /admin
+├── assets/             Stylesheets, scripts, images and uploads
+├── admin/              Admin panel interface
+├── data/
+│   └── content.json    All site content and settings (single source of truth)
+├── server/             Node.js backend (render, schema, auth, storage)
+├── php/                PHP backend for production hosting
+└── scripts/            Build and parity-check tooling
 ```
-
-Saving in the admin validates everything on the server, writes `data/content.json`,
-regenerates `index.html` and records a history version. The public page itself stays a
-plain static file, so it loads fast, works without JavaScript and is fully indexable.
-
-What can be managed: all texts, buttons and links; hero, key facts, About (sectors,
-P Project, values), Services, Why us, field photos, Clients (names, logos, A–Z
-sorting, rows shown before “Show more”), Contact (offices, phones, map), Footer, SEO/sharing;
-section order, visibility and menu labels; brand colors (with contrast checks) and
-curated font pairs; animations on/off and speed; media library; version history.
 
 ## Security
 
-- Sessions: random token in an HttpOnly, SameSite=Strict cookie; 2 h idle / 12 h max.
-- Every change needs a per-session CSRF token and a same-origin request.
-- 5 failed logins from one IP → 15 minute lockout.
-- All input validated server-side (types, lengths, safe links/images, list sizes,
-  readable colors); all output HTML-escaped.
-- Uploads: PNG/JPEG/WebP only, checked by file signature, max 5 MB, random file names.
-- Only `index.html` and `/assets/*` are publicly served — `data/`, `server/` are not.
-  On cPanel the private data lives outside `public_html`, and `.htaccess` blocks `app/`,
-  config/JSON files and script execution in `assets/uploads/`.
+- Passwords hashed with **scrypt**; credentials are never committed
+- Sessions via random tokens in `HttpOnly`, `SameSite=Strict` cookies (2 h idle / 12 h max)
+- **CSRF** token and same-origin check on every change
+- Login rate limiting — 5 failed attempts trigger a 15-minute lockout
+- All input validated server-side; all output HTML-escaped
+- Uploads restricted to PNG/JPEG/WebP, verified by file signature, max 5 MB, randomized names
+- Private data stored outside the web root; `.htaccess` blocks code, config and data files
 
 ## Deployment
 
-There are two interchangeable backends with the same API, so the admin UI is identical:
+Production runs on cPanel / Apache with PHP — no database, Node.js or Composer required on the
+server.
 
-| Backend | Use for | Code |
-|---|---|---|
-| **PHP** (Apache/cPanel, PHP 7.4+) | **production on CBN cPanel hosting** | `php/` |
-| Node.js (no packages) | local editing/preview, or a Node-capable server | `server/` |
+```bash
+npm run build:cpanel
+```
 
-**cPanel (production):** `npm run build:cpanel` creates `deploy/cpanel/tssolution-cpanel.zip`
-plus a one-time setup token. Step-by-step instructions: **[DEPLOY-CPANEL.md](DEPLOY-CPANEL.md)**.
+This creates an upload-ready package in `deploy/cpanel/`. See
+**[DEPLOY-CPANEL.md](DEPLOY-CPANEL.md)** for the full step-by-step guide.
 
-The PHP backend reads the schema, icons and fonts exported from the Node code at build time
-(`app/shared.json`), so validation rules have one source of truth. After changing
-`server/render.js` or `server/schema.js`, mirror the change in `php/app/` and run
-`npm run build:cpanel && npm run check:php` — it fails unless the PHP backend renders
-byte-identical HTML and validates exactly like Node.
+---
 
-**Node server** (only if a host supports Node.js apps): behind HTTPS / a reverse proxy run
-`HOST=127.0.0.1 PORT=3000 TRUST_PROXY=1 COOKIE_SECURE=1 npm start`, keep it running with a
-process manager, and back up `data/` and `assets/uploads/`.
+<div align="center">
 
-## Design notes
+© 2026 TS Solution · PT Hamparan Indah Rejeki. All rights reserved.
 
-Brand tokens live at the top of `assets/css/styles.css`; the admin overrides colors/fonts
-through a small generated `<style id="site-theme">` block. Animations respect
-`prefers-reduced-motion`, and the page is fully visible without JavaScript.
+</div>
