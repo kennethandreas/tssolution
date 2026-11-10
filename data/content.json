@@ -1,0 +1,418 @@
+{
+  "site": {
+    "title": "TS Solution – Facility Service | PT Hamparan Indah Rejeki",
+    "url": "https://tssolution.co.id",
+    "description": "TS Solution (PT Hamparan Indah Rejeki) provides cleaning services, manpower supply, landscaping, pest control and facility support for factories, offices, residences, hospitals, malls and public facilities.",
+    "keywords": "facility service, cleaning service, manpower supply, outsourcing, landscaping, pest control, Bekasi, TS Solution, PT Hamparan Indah Rejeki",
+    "ogTitle": "TS Solution – Facility Service",
+    "ogDescription": "Cleaning, manpower supply and facility support services by TS Solution (PT Hamparan Indah Rejeki).",
+    "ogImage": "assets/img/hero-1920.jpg"
+  },
+  "theme": {
+    "accent": "#ffab4c",
+    "accentStrong": "#f58220",
+    "accentInk": "#a3530b",
+    "ink": "#151515",
+    "fontPair": "roboto-opensans"
+  },
+  "motion": {
+    "heroIntro": true,
+    "heroSheen": true,
+    "scrollReveal": true,
+    "counters": true,
+    "hoverEffects": true,
+    "speed": "standard"
+  },
+  "header": {
+    "logo": "assets/img/logo-ts-solution.png",
+    "logoAlt": "TS Solution Facility Service",
+    "homeLabel": "Home",
+    "ctaLabel": "Booking",
+    "ctaHref": "#contact",
+    "showPhone": true
+  },
+  "hero": {
+    "eyebrow": "Facility Service",
+    "title": "Facility services & facility management you can rely on.",
+    "lead": "TS Solution (PT Hamparan Indah Rejeki) is supported by a team of experts with extensive experience in Facility Services and Facility Management.",
+    "image": "assets/img/hero-1920.webp",
+    "primaryLabel": "Our Services",
+    "primaryHref": "#services",
+    "secondaryLabel": "Get in touch",
+    "secondaryHref": "#contact",
+    "showScrollCue": true
+  },
+  "facts": {
+    "visible": true,
+    "items": [
+      {
+        "value": "124",
+        "suffix": "+",
+        "label": "Customers",
+        "countUp": true
+      },
+      {
+        "value": "127",
+        "suffix": "+",
+        "label": "Sites",
+        "countUp": true
+      },
+      {
+        "value": "1500",
+        "suffix": "+",
+        "label": "Total employees",
+        "countUp": true
+      },
+      {
+        "value": "4",
+        "suffix": "",
+        "label": "Business segments",
+        "countUp": true
+      }
+    ]
+  },
+  "layout": [
+    {
+      "key": "about",
+      "visible": true,
+      "navLabel": "About us",
+      "inNav": true
+    },
+    {
+      "key": "services",
+      "visible": true,
+      "navLabel": "Services",
+      "inNav": true
+    },
+    {
+      "key": "whyUs",
+      "visible": true,
+      "navLabel": "Why us",
+      "inNav": true
+    },
+    {
+      "key": "standards",
+      "visible": true,
+      "navLabel": "Our teams",
+      "inNav": false
+    },
+    {
+      "key": "clients",
+      "visible": true,
+      "navLabel": "Clients",
+      "inNav": true
+    },
+    {
+      "key": "contact",
+      "visible": true,
+      "navLabel": "Contact",
+      "inNav": true
+    }
+  ],
+  "about": {
+    "eyebrow": "Who we are",
+    "title": "About us",
+    "lead": "TS Solution (PT Hamparan Indah Rejeki) was established in 2013 as a transformation of its predecessor, SSM, which was founded in 2002 and grew to employ more than 3,000 people.",
+    "paragraphs": [
+      "We are supported by a team of experts with extensive experience in Facility Services and Facility Management.",
+      "Our clients operate across a wide range of sectors, including:"
+    ],
+    "sectors": [
+      {
+        "icon": "factory",
+        "label": "Industrial / Manufacturing (Factories) & Warehouse"
+      },
+      {
+        "icon": "apartment",
+        "label": "Residential & Service Apartments"
+      },
+      {
+        "icon": "office",
+        "label": "Office Buildings"
+      },
+      {
+        "icon": "public",
+        "label": "Public Facilities"
+      },
+      {
+        "icon": "hospital",
+        "label": "Hospitals"
+      },
+      {
+        "icon": "retail",
+        "label": "Shopping Malls & Retail Centers"
+      }
+    ],
+    "project": {
+      "visible": true,
+      "badge": "P",
+      "title": "The “P Project”",
+      "text": "In response to the growing challenges and the demand for superior client service, we have developed an ongoing innovation initiative inspired by Japanese work standards, known as the “P Project.” Through this program, we collaborate with several Japanese companies and send our local teams to undergo specialized training with experienced experts in Japan to ensure the successful adaptation and implementation of these high-performance work standards."
+    },
+    "values": [
+      {
+        "icon": "thumbsUp",
+        "title": "Valuable Work Ethic",
+        "text": "Honesty, Discipline & Compliance"
+      },
+      {
+        "icon": "stopwatch",
+        "title": "Valuable Work Method",
+        "text": "Effective, Efficient & speed increase"
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "Our Services",
+    "subtitle": "Integrated Facility Service solutions to support operational excellence across industries.",
+    "items": [
+      {
+        "title": "Cleaning Service",
+        "image": "assets/img/cleaner.webp",
+        "imageAlt": "TS Solution staff cleaning an office table",
+        "bullets": [
+          {
+            "text": "Cleaning Service",
+            "note": "(Regular contract)"
+          },
+          {
+            "text": "Specialist Cleaning Service",
+            "note": ""
+          },
+          {
+            "text": "Post Construction Cleaning",
+            "note": ""
+          },
+          {
+            "text": "General Cleaning",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Manpower Supply",
+        "image": "assets/img/mpsupply.webp",
+        "imageAlt": "Manpower supply workers",
+        "bullets": [
+          {
+            "text": "Helper & Operator",
+            "note": "(Production)"
+          },
+          {
+            "text": "MEP Engineering",
+            "note": "(Mechanical, Electrical and Plumbing)"
+          },
+          {
+            "text": "Handyman, NOC, BMS, Fire Engineer",
+            "note": ""
+          },
+          {
+            "text": "Office Support",
+            "note": "(Admin Support, Receptionist, Messenger)"
+          },
+          {
+            "text": "Office Boy, Office Girl",
+            "note": ""
+          },
+          {
+            "text": "Driver",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Other Services",
+        "image": "assets/img/gardener_landscape.webp",
+        "imageAlt": "Landscaping and gardening service",
+        "bullets": [
+          {
+            "text": "Landscaping & Gardening Service",
+            "note": ""
+          },
+          {
+            "text": "Pest Control",
+            "note": ""
+          },
+          {
+            "text": "Cleaning Tools & Equipment Supplies & Materials",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  "whyUs": {
+    "eyebrow": "Our added value",
+    "title": "More than a service provider",
+    "subtitle": "Integrated people, operation and technology to deliver Service Excellence.",
+    "featureImage": "assets/img/team.webp",
+    "featureAlt": "TS Solution cleaning, technical and office support staff walking together in a building lobby",
+    "featureCaption": "Your Reliable Operational Partner",
+    "items": [
+      {
+        "icon": "people",
+        "title": "Comprehensive People Management",
+        "text": "Structured recruitment, onboarding, performance evaluation and career development."
+      },
+      {
+        "icon": "award",
+        "title": "Skill • Attitude • Knowledge",
+        "text": "High-standard people with strong competences, service ethics and job knowledge."
+      },
+      {
+        "icon": "response",
+        "title": "Responsive Operation",
+        "text": "Rapid issue response, structured escalation and effective resolution."
+      },
+      {
+        "icon": "training",
+        "title": "Continuous Training",
+        "text": "Ongoing training, refresher programs and competency development based on operational needs."
+      },
+      {
+        "icon": "digital",
+        "title": "Digital Technology",
+        "text": "Digital attendance, geotagging, face recognition, monitoring and real-time reporting."
+      },
+      {
+        "icon": "sunrise",
+        "title": "Japanese Service Spirit",
+        "text": "Discipline, Kaizen, Ho-Ren-So, 5S and a commitment to continuous quality."
+      },
+      {
+        "icon": "shield",
+        "title": "Compliance & Safety Commitment",
+        "text": "Employment compliance, BPJS protection, SOP implementation and workplace safety monitoring."
+      }
+    ]
+  },
+  "standards": {
+    "photos": [
+      {
+        "image": "assets/img/field-cleaning.webp",
+        "alt": "Cleaning staff wiping down an office table"
+      },
+      {
+        "image": "assets/img/field-mep.webp",
+        "alt": "Technicians working at height on a scissor lift"
+      },
+      {
+        "image": "assets/img/field-floor.webp",
+        "alt": "Cleaner mopping a corridor floor next to a wet floor sign"
+      },
+      {
+        "image": "assets/img/field-garden.webp",
+        "alt": "Gardener mowing a lawn outside a building"
+      }
+    ]
+  },
+  "clients": {
+    "eyebrow": "Our clients",
+    "title": "Trusted by organisations across sectors",
+    "sortAlpha": true,
+    "collapsedRows": 3,
+    "showMoreLabel": "Show more",
+    "showLessLabel": "Show less",
+    "items": [
+      {
+        "name": "Embassy of Japan",
+        "logo": ""
+      },
+      {
+        "name": "Australia Embassy",
+        "logo": ""
+      },
+      {
+        "name": "KIIC (Karawang International Industrial City)",
+        "logo": ""
+      },
+      {
+        "name": "Mitsubishi Motors Krama Yudha Indonesia",
+        "logo": ""
+      },
+      {
+        "name": "TD Automotive Compressor Indonesia",
+        "logo": ""
+      },
+      {
+        "name": "Astra Daihatsu Motor",
+        "logo": ""
+      },
+      {
+        "name": "Daikin Industries Ind.",
+        "logo": ""
+      },
+      {
+        "name": "Yamaha Music Manufacturing Asia",
+        "logo": ""
+      },
+      {
+        "name": "Yamaha Indonesia Motor Manufacturing",
+        "logo": ""
+      },
+      {
+        "name": "Denso Indonesia",
+        "logo": ""
+      },
+      {
+        "name": "Bekaert Indonesia",
+        "logo": ""
+      },
+      {
+        "name": "Tokyu Land (Branz BSD, Branz Simatupang)",
+        "logo": ""
+      },
+      {
+        "name": "Toyota Tsusho Indonesia",
+        "logo": ""
+      },
+      {
+        "name": "Unilever Learning Center",
+        "logo": ""
+      },
+      {
+        "name": "Summarecon Mall Bekasi",
+        "logo": ""
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "intro": "Talk to us about cleaning, manpower supply or other facility services for your site.",
+    "officeLabel": "Office",
+    "offices": [
+      {
+        "line1": "Rukan Emerald Blok UB No. 23",
+        "line2": "Kota Summarecon, Bekasi 17142"
+      },
+      {
+        "line1": "Rukan Emerald Blok UF No. 16",
+        "line2": "Kota Summarecon, Bekasi 17142"
+      }
+    ],
+    "phoneLabel": "Phone",
+    "phones": [
+      "(021) 2962 0480",
+      "(021) 8945 4797",
+      "(021) 8945 2763"
+    ],
+    "fax": "(021) 2957 2811",
+    "secondaryLabel": "Call us",
+    "mapLabel": "Open in Google Maps",
+    "map": {
+      "lat": -6.2276721,
+      "lng": 107.0041869,
+      "zoom": 15,
+      "query": "PT Hamparan Indah Rejeki"
+    }
+  },
+  "footer": {
+    "brand": "TS Solution",
+    "tagline": "PT Hamparan Indah Rejeki · Facility Service",
+    "copyright": "© {year} TS Solution (PT Hamparan Indah Rejeki). All rights reserved.",
+    "showContact": true,
+    "backToTopLabel": "Back to top"
+  }
+}

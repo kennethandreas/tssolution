@@ -1,0 +1,58 @@
+# TS Solution website — Apache configuration for cPanel hosting
+# Public site: static index.html + /assets. Admin + API: PHP front controller in /api.
+
+Options -Indexes
+DirectoryIndex index.html
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- HTTPS -----------------------------------------------------------------
+  # Send every visitor to https:// (tssolution.co.id already has a valid AutoSSL
+  # certificate). If the certificate ever stops working, put "#" in front of the
+  # four lines below until cPanel → SSL/TLS Status → Run AutoSSL has fixed it.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # --- Block private files ---------------------------------------------------
+  RewriteRule ^app(/|$) - [F,L]
+  RewriteRule ^tssolution-data(/|$) - [F,L]
+  RewriteRule ^admin/[^/]+\.html$ - [F,L]
+
+  # --- Admin pages and API → PHP ----------------------------------------------
+  RewriteRule ^api/admin/ api/index.php [L,QSA]
+  RewriteRule ^admin/?$ api/index.php [L,QSA]
+  RewriteRule ^admin/(login|setup)$ api/index.php [L,QSA]
+  RewriteRule ^admin/preview/[a-f0-9]{32}$ api/index.php [L,QSA]
+</IfModule>
+
+# Hidden files, docs, data and config files are never served
+<FilesMatch "(^\.|\.(md|json|lock|log|ini|sh|bak|tmp|sql|zip)$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+  # After HTTPS works everywhere you may also enable HSTS (remove the "#"):
+  # Header always set Strict-Transport-Security "max-age=31536000"
+
+  # Always check for a fresh page/styles/scripts (the admin regenerates index.html)
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(png|jpe?g|webp|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+</IfModule>

@@ -1,0 +1,16 @@
+# admin credentials (scrypt hashes) — never commit
+data/admin.json
+data/*.tmp
+# per-save history snapshots
+data/history/
+node_modules/
+*.tmp
+# build output (contains a setup token)
+deploy/
+# images uploaded through the admin (runtime content)
+assets/uploads/*
+!assets/uploads/.gitkeep
+# high-resolution source images (not served by the site)
+assets/img/_originals/
+# third-party site builder export
+*.zip
