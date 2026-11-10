@@ -95,10 +95,8 @@ setup token.
 
 ## Author
 
-**Kenneth Andreas** — Software Engineer  
-Designed and built the website, the CMS and both backends, and handled production deployment.
-
-GitHub: [@kennethandreas](https://github.com/kennethandreas)
+Designed and developed by **Kenneth Andreas** ([@kennethandreas](https://github.com/kennethandreas)):
+website, CMS, both backends and production deployment.
 
 ## License
 
