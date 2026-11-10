@@ -100,6 +100,10 @@ Designed and built the website, the CMS and both backends, and handled productio
 
 GitHub: [@kennethandreas](https://github.com/kennethandreas)
 
----
+## License
 
-© 2026 Kenneth Andreas. Built for TS Solution. Company name, logo, photos and content belong to TS Solution.
+**Proprietary — all rights reserved.** This source code is published for portfolio viewing only;
+copying, modification, redistribution or deployment is not permitted without written permission.
+See [`LICENSE`](LICENSE).
+
+Company name, logo, photographs, client logos and website content belong to TS Solution.

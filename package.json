@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "TS Solution landing page with admin panel (no external dependencies).",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "node server/server.js",
     "create-admin": "node server/cli.js create",
@@ -12,5 +13,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "author": "Kenneth Andreas"
 }
